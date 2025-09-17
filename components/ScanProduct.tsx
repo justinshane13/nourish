@@ -1,18 +1,21 @@
-import { CameraType, CameraView, useCameraPermissions } from 'expo-camera';
+import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import Overlay from './Overlay';
 
 const ScanProduct = () => {
-  const [facing, setFacing] = useState<CameraType>('back');
   const [permission, requestPermission] = useCameraPermissions();
+  const [productCode, setProductCode] = useState("")
+
+  const handleScan = (data: any) => {
+    console.log("data: ", data.data);
+  }
 
   if (!permission) {
-    // Camera permissions are still loading.
     return <View />;
   }
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet.
     return (
       <View style={styles.container}>
         <Text style={styles.message}>We need your permission to show the camera</Text>
@@ -21,18 +24,10 @@ const ScanProduct = () => {
     );
   }
 
-  function toggleCameraFacing() {
-    setFacing(current => (current === 'back' ? 'front' : 'back'));
-  }
-
   return (
     <View style={styles.container}>
-      <CameraView style={styles.camera} facing={facing} />
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-          <Text style={styles.text}>Flip Camera</Text>
-        </TouchableOpacity>
-      </View>
+      <CameraView style={styles.camera} facing="back" onBarcodeScanned={(data) => handleScan(data)}/>
+      <Overlay />
     </View>
   );
 }

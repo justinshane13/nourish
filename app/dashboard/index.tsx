@@ -1,4 +1,6 @@
 import ProductCarousel from '@/components/ProductCarousel';
+import { Product } from '@/types';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useRouter } from 'expo-router';
 import {
     Dimensions,
@@ -12,7 +14,7 @@ const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.7; // 70% of screen width
 const CARD_MARGIN = 12;
 
-const sampleProducts = [
+const sampleProducts: Product[] = [
   {
     name: 'Coca-Cola',
     score: 12,
@@ -120,7 +122,7 @@ const DashboardScreen = () => {
     return  (
         <View style={styles.container}>
             <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Recent scans</Text>        
+                <Text style={styles.sectionTitle}>Recent searches</Text>        
                 <ProductCarousel products={sampleProducts} />
             </View>
             <View>
@@ -129,6 +131,7 @@ const DashboardScreen = () => {
                 onPress={() => router.push('/scan-product')}
                 >
                     <Text style={styles.buttonText}>Scan Product</Text>
+                    <MaterialCommunityIcons name="barcode-scan" size={24} color="white" />
                 </TouchableOpacity>
             </View>
         </View>
@@ -139,24 +142,26 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    section: {
+        padding: 20,
+    },
     sectionTitle: {
-        fontSize: 22,
+        fontSize: 20,
         color: '#000',
         fontWeight: 'bold',
-        textAlign: 'center',
+        textAlign: 'left',
         marginTop: 20,
         marginBottom: 10,
     },
-    section: {
-        padding: 10,
-    },
     button: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#228866',
         minWidth: 280,
         paddingVertical: 12,
         paddingHorizontal: 25,
         borderRadius: 25,
-        alignItems: 'center',
         margin: 20,
     },
     buttonSecondary: {
@@ -174,7 +179,7 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontSize: 18,
         fontWeight: 'bold',
-
+        marginRight: 10,
     },
 });
 

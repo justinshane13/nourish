@@ -8,7 +8,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Image source={nourishImage} style={styles.icon}/>
-      <Text style={styles.title}>Welcome to Nourish</Text>
+      <Text style={styles.title}>Nourish</Text>
       <Text style={styles.subtitle}>Say hello to a <Text style={styles.italic}>healthier</Text> you.</Text>
 
       <TouchableOpacity
@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
   icon: {
     height: 150,
     width: 150,
-    marginBottom: 20,
+    marginBottom: -10,
   },
   title: {
-    fontSize: 28,
+    fontSize: 44,
     color: '#000',
     fontWeight: 'bold',
     textAlign: 'center',
@@ -50,9 +50,8 @@ const styles = StyleSheet.create({
     subtitle: {
     fontSize: 20,
     color: '#666',
-
     textAlign: 'center',
-    marginBottom: 45,
+    marginBottom: 150,
   },
   button: {
     backgroundColor: '#228866',
@@ -62,6 +61,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
     marginBottom: 20,
+    position: 'absolute',
+    bottom: 130,
   },
   buttonSecondary: {
     backgroundColor: '#fff',
@@ -73,6 +74,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
     marginBottom: 20,
+    position: 'absolute',
+    bottom: 65,
   },
   buttonText: {
     color: "#fff",
