@@ -3,6 +3,9 @@ import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const RootLayout = () => {
+
+  // TODO: once auth is setup, render auth stack if not authenticated, app stack if authenticated
+
   return (
     <SafeAreaProvider>
       <StatusBar 
@@ -25,12 +28,11 @@ const RootLayout = () => {
             backgroundColor: '#fff'
           },
           headerShadowVisible: true,
+          headerShown: false,
         }}
-      >
-        <Stack.Screen name='index' options={{title: 'Home', headerShown: false}} />
-        <Stack.Screen name='dashboard' options={{title: 'Dashboard'}} />
-        <Stack.Screen name='register' options={{title: 'Register'}} />
-        <Stack.Screen name='scan-product' options={{title: 'Scan Product'}} />
+      > 
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(app)" options={{ headerShown: false }} />
       </Stack>;
     </SafeAreaProvider>
   )

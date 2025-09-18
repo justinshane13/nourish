@@ -3,11 +3,11 @@ import { Product } from '@/types';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useRouter } from 'expo-router';
 import {
-    Dimensions,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
@@ -116,19 +116,20 @@ const sampleProducts: Product[] = [
   }
 ]
 
-const DashboardScreen = () => {
+const HomeScreen = () => {
     const router = useRouter();
 
     return  (
         <View style={styles.container}>
             <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Recent searches</Text>        
+                <Text style={styles.sectionTitle}>Recent searches</Text>
+                {/* TODO: make product cards pressable to view modal or separate page with product details */}
                 <ProductCarousel products={sampleProducts} />
             </View>
             <View>
                 <TouchableOpacity
                 style={styles.button}
-                onPress={() => router.push('/scan-product')}
+                onPress={() => router.push('/scan')}
                 >
                     <Text style={styles.buttonText}>Scan Product</Text>
                     <MaterialCommunityIcons name="barcode-scan" size={24} color="white" />
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#228866',
+        backgroundColor: '#13803d',
         minWidth: 280,
         paddingVertical: 12,
         paddingHorizontal: 25,
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 25,
         borderWidth: 1,
-        borderColor: '#228866',
+        borderColor: '#13803d',
         borderRadius: 25,
         alignItems: 'center',
         marginBottom: 20,
@@ -183,4 +184,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default DashboardScreen;
+export default HomeScreen;

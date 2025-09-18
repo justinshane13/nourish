@@ -1,16 +1,16 @@
+import ScanProduct from '@/components/ScanProduct';
 import { useRouter } from 'expo-router';
 import {
     StyleSheet,
-    Text,
-    View,
+    View
 } from 'react-native';
 
-const RegisterScreen = () => {
+const ScanScreen = () => {
     const router = useRouter();
 
     return  (
         <View style={styles.container}>
-            <Text>To Do</Text>
+            <ScanProduct />
         </View>
     )
 };
@@ -18,9 +18,7 @@ const RegisterScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-})
+    },
+});
 
-export default RegisterScreen;
+export default ScanScreen;
