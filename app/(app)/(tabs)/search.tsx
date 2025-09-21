@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export default function HomePage() {
+export default function SearchScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Welcome Profile 🎉</Text>
+      <Text>Welcome to Search 🎉</Text>
     </View>
   );
 }

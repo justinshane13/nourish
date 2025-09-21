@@ -8,7 +8,7 @@ export default function LoginScreen() {
   const router = useRouter();
 
   const handleLogin = () => {
-    router.replace("/(app)/home");
+    router.replace("/(app)/(tabs)/home");
 
     // TODO: write API/auth logic
     // if (email && password) {
