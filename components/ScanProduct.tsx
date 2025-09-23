@@ -30,7 +30,6 @@ const ScanProduct = () => {
     setTimeout(() => {
       router.replace("/home");
       setTimeout(() => {
-        console.log("sending product data: ", data);
         router.push({
           pathname: "/product",
           params: {

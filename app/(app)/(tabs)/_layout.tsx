@@ -1,3 +1,4 @@
+import AppHeader from '@/components/AppHeader';
 import Entypo from '@expo/vector-icons/Entypo';
 import Feather from '@expo/vector-icons/Feather';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -21,7 +22,7 @@ export default function TabsLayout() {
         },
         tabBarActiveTintColor: "#13803d",
         tabBarInactiveTintColor: "#6b7280",
-        
+        header: () => <AppHeader />
     }}>
       <Tabs.Screen
         name="home"

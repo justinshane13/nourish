@@ -8,13 +8,14 @@ export default function ProductScreen() {
   const { productName } = useLocalSearchParams();
   const router = useRouter();
 
-  // Fake product data (you can replace with real data later)
+  // Fake product data to test. Will replace this with data from API when it's ready
   const product = {
+    id: productName,
     name: productName || "Unknown Product",
     score: 87,
     ingredients: ["Water", "Sugar", "Lemon", "Caffeine"],
     image:
-      "https://picsum.photos/800/400", // fallback image
+      "https://picsum.photos/800/400", // placeholder image to test
   };
 
   const size = 100;

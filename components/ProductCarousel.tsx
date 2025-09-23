@@ -4,7 +4,7 @@ import { Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
 import ProductCard from './ProductCard';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width * 0.7; // 70% of screen width
+const CARD_WIDTH = width * 0.7;
 const CARD_MARGIN = 12;
 
 const ProductCarousel = ({ products }: { products: Product[] }) => {

@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import { Dimensions, Pressable, StyleSheet, Text } from 'react-native';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width * 0.7; // 70% of screen width
+const CARD_WIDTH = width * 0.7;
 const CARD_MARGIN = 12;
 
 const ProductCard = ({product}: {product: Product}) => {
@@ -32,11 +32,6 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         padding: 16,
         marginHorizontal: CARD_MARGIN,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-        elevation: 4,
         width: CARD_WIDTH,
     },
     tileTitle: {
