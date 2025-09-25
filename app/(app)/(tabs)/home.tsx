@@ -18,16 +18,16 @@ const HomeScreen = () => {
         <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom + 16 }}>
 
             <View style={styles.welcome}>
-                <Text style={styles.title}>Hi, Shelby.</Text>
-                <Text style={styles.welcomeTitle}>You've searched 8 products this week. Way to go!</Text>
+                <Text style={styles.title}>Hi, Shelby</Text>
+                <Text style={styles.welcomeTitle}>You've searched 8 products this week — Way to go! 🥳</Text>
             </View>
 
             <HomeSection title="Recent searches" onPressSeeAll={() => {router.push("/history")}}>
                 <ProductCarousel products={testProducts} />
             </HomeSection>
 
-            <HomeSection title="Recommendations" onPressSeeAll={() => {router.push("/history")}}>
-                <ProductCarousel products={testProducts} />
+            <HomeSection title="You Might Like" onPressSeeAll={() => {router.push("/history")}}>
+                <ProductCarousel products={testProducts.filter(product => product.score >= 85)} />
             </HomeSection>
             
         </ScrollView>
@@ -36,21 +36,24 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 24,
+        fontSize: 26,
         fontWeight: 'bold',
         marginBottom: 0,
-        color: '#000',
+        color: '#fff',
     },
     welcome: {
-        padding: 20,
+        paddingHorizontal: 20,
+        paddingVertical: 30,
+        backgroundColor: '#000',
+        marginBottom: 10,
     },
     welcomeTitle: {
-        fontSize: 20,
-        color: '#000',
+        fontSize: 16,
+        color: '#fff',
         fontWeight: 'bold',
         textAlign: 'left',
-        marginTop: 20,
-        marginBottom: 10,
+        marginTop: 10,
+        lineHeight: 23,
     },
 });
 

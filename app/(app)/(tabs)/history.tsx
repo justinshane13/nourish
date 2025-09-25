@@ -4,6 +4,8 @@ export default function HistoryScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>Welcome to History 🎉</Text>
+      <Text></Text>
+      <Text>Coming Soon!</Text>
     </View>
   );
 }

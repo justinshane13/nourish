@@ -14,7 +14,7 @@ const AppHeader = () => {
     <View
       style={[
         styles.header,
-        { paddingTop: insets.top, height: insets.top + 50 },
+        { paddingTop: insets.top, height: insets.top + 40 },
       ]}
     >
       {canGoBack ? (
@@ -43,12 +43,11 @@ const AppHeader = () => {
 
 const styles = StyleSheet.create({
   header: {
-    height: 60,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 12,
-    backgroundColor: "#eae7e7ff",
+    backgroundColor: "#13803d",
   },
   backButton: {
     width: 40,
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 24,
+    color: "#fff",
   },
   titleContainer: {
     flexDirection: "row",
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
+    color: "#fff"
   },
   rightIcons: {
     width: 40, // reserve space

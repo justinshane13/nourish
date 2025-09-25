@@ -1,8 +1,8 @@
-import { useBarcodeStore } from '@/store';
+import { testProducts } from '@/data/testProducts';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useRef, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Overlay from './Overlay';
 
 const ScanProduct = () => {
@@ -25,7 +25,17 @@ const ScanProduct = () => {
     lastScannedTimestampRef.current = timestamp;
     setHasScanned(true);
 
-    useBarcodeStore.getState().setBarcode(data);
+    const product = testProducts.find(product => product.id === data);
+    
+    if (!product) {
+      return (
+        Alert.alert('Bardode Not Found', 'Sorry, we could not find that product.', [
+          { text: 'OK', onPress: () => setHasScanned(false) },
+        ])
+      )
+    }
+
+    // useBarcodeStore.getState().setBarcode(data);
 
     setTimeout(() => {
       router.replace("/home");
@@ -33,7 +43,7 @@ const ScanProduct = () => {
         router.push({
           pathname: "/product",
           params: {
-            productName: data
+            productId: data
           }
         });
       }, 400)

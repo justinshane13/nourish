@@ -1,3 +1,4 @@
+import { testProducts } from "@/data/testProducts";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useRef } from "react";
 import { Animated, Button, Image, Platform, ScrollView, StyleSheet, Text, View } from "react-native";
@@ -5,18 +6,14 @@ import Svg, { Circle } from "react-native-svg";
 
 
 export default function ProductScreen() {
-  const { productName } = useLocalSearchParams();
+  const { productId } = useLocalSearchParams();
   const router = useRouter();
+  const product = testProducts.find(product => product.id === productId);
 
-  // Fake product data to test. Will replace this with data from API when it's ready
-  const product = {
-    id: productName,
-    name: productName || "Unknown Product",
-    score: 87,
-    ingredients: ["Water", "Sugar", "Lemon", "Caffeine"],
-    image:
-      "https://picsum.photos/800/400", // placeholder image to test
-  };
+  if (!product) {
+    router.push("/home");
+    return;
+  }
 
   const size = 100;
   const strokeWidth = 16;
@@ -24,7 +21,7 @@ export default function ProductScreen() {
   const circumference = 2 * Math.PI * radius;
   const progress = (product.score / 100) * circumference;
 
-    const progressAnim = useRef(new Animated.Value(0)).current;
+  const progressAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(progressAnim, {

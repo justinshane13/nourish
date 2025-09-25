@@ -28,18 +28,7 @@ export default function TabsLayout() {
         name="home"
         options={{ title: "Home", tabBarIcon: ({ focused, color, size }) => (
             <View style={{ alignItems: "center" }}>
-              <Feather name="home" size={22} color="gray" />
-              {focused && (
-                <View
-                  style={{
-                    position: "absolute",
-                    top: -7,
-                    height: 2,
-                    width: "150%",
-                    backgroundColor: "#13803d",
-                  }}
-                />
-              )}
+              <Feather name="home" size={22} color={focused ? "#13803d" : "gray"} />
             </View>
         )  }}
       />
@@ -47,18 +36,7 @@ export default function TabsLayout() {
         name="history"
         options={{ title: "History", tabBarIcon: ({ focused, color, size }) => (
             <View style={{ alignItems: "center" }}>
-              <Entypo name="list" size={24} color="gray" /> 
-              {focused && (
-                <View
-                  style={{
-                    position: "absolute",
-                    top: -7,
-                    height: 2,
-                    width: "150%",
-                    backgroundColor: "#13803d",
-                  }}
-                />
-              )}
+              <Entypo name="list" size={24} color={focused ? "#13803d" : "gray"} /> 
             </View>
         )}}
       />
@@ -66,18 +44,7 @@ export default function TabsLayout() {
         name="scan"
         options={{ title: "Scan", tabBarIcon: ({ focused, color, size }) => (
             <View style={{ alignItems: "center" }}>
-              <MaterialCommunityIcons name="barcode-scan" size={24} color="gray" />
-              {focused && (
-                <View
-                  style={{
-                    position: "absolute",
-                    top: -7,
-                    height: 2,
-                    width: "150%",
-                    backgroundColor: "#13803d",
-                  }}
-                />
-              )}
+              <MaterialCommunityIcons name="barcode-scan" size={24} color={focused ? "#13803d" : "gray"} />
             </View>
         )}}
       />
@@ -85,18 +52,7 @@ export default function TabsLayout() {
         name="search"
         options={{ title: "Search", tabBarIcon: ({ focused, color, size }) => (
             <View style={{ alignItems: "center" }}>
-              <Ionicons name="search" size={22} color="gray" />
-              {focused && (
-                <View
-                  style={{
-                    position: "absolute",
-                    top: -7,
-                    height: 2,
-                    width: "150%",
-                    backgroundColor: "#13803d",
-                  }}
-                />
-              )}
+              <Ionicons name="search" size={22} color={focused ? "#13803d" : "gray"} />
             </View>
         )}}
       />
@@ -104,18 +60,7 @@ export default function TabsLayout() {
         name="profile"
         options={{ title: "Profile", tabBarIcon: ({ focused, color, size }) => (
             <View style={{ alignItems: "center" }}>
-              <Feather name="user" size={24} color="gray" />
-              {focused && (
-                <View
-                  style={{
-                    position: "absolute",
-                    top: -7,
-                    height: 2,
-                    width: "150%",
-                    backgroundColor: "#13803d",
-                  }}
-                />
-              )}
+              <Feather name="user" size={24} color={focused ? "#13803d" : "gray"} />
             </View>
         )}}
       />
