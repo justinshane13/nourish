@@ -7,7 +7,7 @@ const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.7;
 const CARD_MARGIN = 12;
 
-const ProductCarousel = ({ products }: { products: Product[] }) => {
+const ProductCarousel = React.memo(({ products }: { products: Product[] }) => {
     
     if (products.length < 1) {
         return (
@@ -41,7 +41,7 @@ const ProductCarousel = ({ products }: { products: Product[] }) => {
             renderItem={({ item }) => <ProductCard product={item} />}
         />
     );
-};
+});
 
 const styles = StyleSheet.create({
   flatList: {

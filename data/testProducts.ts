@@ -190,4 +190,11 @@ export const testProducts: Product[] = [
     ingredients: ["water", "glycerin", "ceramides", "hyaluronic acid"],
     image: "https://picsum.photos/800/400?random=10",
   },
+    {
+    id: "00048569",
+    name: "Oven Toasted Old Fashioned Organic Oats",
+    score: 82,
+    ingredients: ["organic rolled oats"],
+    image: "https://picsum.photos/800/400?random=10",
+  },
 ]

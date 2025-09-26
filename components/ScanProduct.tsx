@@ -1,13 +1,15 @@
 import { testProducts } from '@/data/testProducts';
+import Entypo from '@expo/vector-icons/Entypo';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useRef, useState } from 'react';
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Overlay from './Overlay';
 
 const ScanProduct = () => {
   const [permission, requestPermission] = useCameraPermissions();
   const [hasScanned, setHasScanned] = useState(false);
+  const [isFlashOn, setIsFlashOn] = useState(false);
   const lastScannedTimestampRef = useRef(0);
   const router = useRouter();
 
@@ -69,8 +71,9 @@ const ScanProduct = () => {
 
   return (
     <View style={styles.container}>
-      <CameraView style={styles.camera} facing="back" onBarcodeScanned={!hasScanned ? (data) => handleScan(data) : undefined}/>
+      <CameraView style={styles.camera} facing="back" enableTorch={isFlashOn} onBarcodeScanned={!hasScanned ? (data) => handleScan(data) : undefined}/>
       <Overlay />
+      <Pressable style={styles.torchButton} onPress={() => setIsFlashOn(!isFlashOn)}><Entypo name="flash" size={24} color="black" /></Pressable>
     </View>
   );
 }
@@ -126,6 +129,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
   },
+  torchButton: {
+    position: "absolute",
+    bottom: 20,
+    right: 20,
+    backgroundColor: "#fff",
+    borderRadius: 30,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  }
 });
 
 export default ScanProduct;
