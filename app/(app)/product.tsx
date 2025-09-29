@@ -15,11 +15,10 @@ export default function ProductScreen() {
     return;
   }
 
-  const size = 100;
-  const strokeWidth = 16;
+  const size = 75;
+  const strokeWidth = 12;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
-  const progress = (product.score / 100) * circumference;
 
   const progressAnim = useRef(new Animated.Value(0)).current;
 
@@ -49,42 +48,47 @@ export default function ProductScreen() {
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{product.name}</Text>
 
-          {/* Circular Score */}
-          <View style={styles.scoreContainer}>
-            <Svg width={size} height={size}>
-              <Circle
-                stroke="#E5E7EB"
-                cx={size / 2}
-                cy={size / 2}
-                r={radius}
-                strokeWidth={strokeWidth}
-                fill="transparent"
-              />
-              <AnimatedCircle
-                stroke={strokeColor}
-                cx={size / 2}
-                cy={size / 2}
-                r={radius}
-                strokeWidth={strokeWidth}
-                strokeDasharray={`${circumference}`}
-                strokeDashoffset={strokeDashoffset}
-                strokeLinecap="round"
-                fill="transparent"
-              />
-            </Svg>
-            <View style={styles.scoreTextContainer}>
-              <Text style={styles.scoreText}>{product.score}</Text>
+          <View style={styles.contentRow}>
+            <View style={styles.scoreContainer}>
+              <Svg width={size} height={size}>
+                <Circle
+                  stroke="#E5E7EB"
+                  cx={size / 2}
+                  cy={size / 2}
+                  r={radius}
+                  strokeWidth={strokeWidth}
+                  fill="transparent"
+                />
+                <AnimatedCircle
+                  stroke={strokeColor}
+                  cx={size / 2}
+                  cy={size / 2}
+                  r={radius}
+                  strokeWidth={strokeWidth}
+                  strokeDasharray={`${circumference}`}
+                  strokeDashoffset={strokeDashoffset}
+                  strokeLinecap="round"
+                  fill="transparent"
+                />
+              </Svg>
+              <View style={styles.scoreTextContainer}>
+                <Text style={styles.scoreText}>{product.score}</Text>
+              </View>
             </View>
+            <Text style={styles.productText}><Text style={{ fontWeight: 'bold' }}>Ingredients:</Text> {product.ingredients.join(", ")}</Text>
           </View>
 
-          <Text style={styles.sectionTitle}>Ingredients</Text>
-          <View style={styles.ingredientsContainer}>
-            {product.ingredients.map((ingredient, idx) => (
-              <View key={idx} style={styles.ingredientChip}>
-                <Text style={styles.ingredientText}>{ingredient}</Text>
-              </View>
-            ))}
+          <View style={styles.summaryContainer}>
+            <Text style={styles.summaryText}>
+              <Text style={{ fontWeight: 'bold' }}>Summary: </Text>
+              {product.summary}
+            </Text>
           </View>
+
+          <View style={styles.contentRow}>
+            <Text style={styles.productText}><Text style={{ fontWeight: 'bold' }}>Bottom line:</Text> {product.bottomLine}</Text>
+          </View>
+
         </View>
       </ScrollView>
 
@@ -121,14 +125,24 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginBottom: 8,
     color: "#111827",
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#bbb',
+    paddingBottom: 20,
+  },
+  contentRow: {
+    flexDirection: 'row',
+    gap: 10,
+    width: '100%',
+    marginTop: 30,
   },
   score: {
     fontSize: 18,
     fontWeight: "500",
     marginBottom: 16,
-    color: "#2563EB", // blue accent
+    color: "#2563EB",
+    marginRight: 10,
   },
-  scoreContainer: { alignSelf: "center", marginBottom: 20 },
+  scoreContainer: { alignSelf: "center", marginBottom: 20, marginRight: 10, },
   scoreTextContainer: {
     position: "absolute",
     top: "34%",
@@ -136,29 +150,35 @@ const styles = StyleSheet.create({
     right: 0,
     alignItems: "center",
   },
-  scoreText: { fontSize: 24, fontWeight: "700", color: "#black" },
+  scoreText: { fontSize: 20, fontWeight: "700", color: "#black" },
   sectionTitle: {
     fontSize: 20,
     fontWeight: "600",
     marginBottom: 10,
     color: "#374151",
   },
-  ingredientsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 8,
+  summaryContainer: {
+    backgroundColor: '#4A90E2',
+    borderRadius: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginVertical: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
   },
-  ingredientChip: {
-    backgroundColor: "#E5E7EB",
-    borderRadius: 20,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    marginRight: 8,
-    marginBottom: 8,
+  summaryText: {
+    color: '#fff',
+    fontSize: 16,
+    lineHeight: 22,
   },
-  ingredientText: {
-    fontSize: 14,
-    color: "#111827",
+  productText: {
+    fontSize: 16,
+    color: '#333',
+    marginBottom: 10,
+    flexShrink: 1,
   },
   closeButton: {
     padding: 16,

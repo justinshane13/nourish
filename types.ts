@@ -4,4 +4,6 @@ export type Product = {
   score: number;
   ingredients: string[];
   image: string;
+  summary: string;
+  bottomLine: "Go for it" | "Neutral" | "Stay away";
 };

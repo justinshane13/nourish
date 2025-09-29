@@ -1,124 +1,95 @@
 import { Product } from "@/types";
 
 export const testProducts: Product[] = [
-    {
+  {
     id: "729555664375",
     name: 'Baby Dove Face and Body Lotion for Sensitive Skin Sensitive Moisture Fragrance-Free Baby Lotion 20 Oz',
     score: 80,
-    ingredients: [
-      "water",
-      "glycerin",
-      "stearic acid",
-      "dimethicone"
-    ],
+    ingredients: ["water", "glycerin", "stearic acid", "dimethicone"],
     image: "https://picsum.photos/800/400",
+    summary: "Gentle lotion designed for sensitive skin. Contains moisturizing glycerin but also dimethicone, a synthetic ingredient. Overall safe with minimal concerns.",
+    bottomLine: "Go for it",
   },
   {
     id: "076840303236",
     name: "Ben & Jerry's, Ice Cream, Chocolate Fudge Brownie",
     score: 25,
-    ingredients: [
-      "cream",
-      "skim milk",
-      "sugar",
-      "cocoa",
-      "brownie pieces"
-    ],
+    ingredients: ["cream", "skim milk", "sugar", "cocoa", "brownie pieces"],
     image: "https://picsum.photos/800/400",
+    summary: "Rich and indulgent but very high in sugar and calories. Provides little nutritional value aside from dairy. Best enjoyed as an occasional treat.",
+    bottomLine: "Stay away",
   },
   {
     id: "049000047790",
     name: 'Coca-Cola',
     score: 12,
-    ingredients: [
-      "water",
-      "high fructose corn syrup",
-      "natural flavors"
-    ],
+    ingredients: ["water", "high fructose corn syrup", "natural flavors"],
     image: "https://picsum.photos/800/400",
+    summary: "Classic soda with high sugar content and no nutrients. Contributes to blood sugar spikes and long-term health risks if consumed often.",
+    bottomLine: "Stay away",
   },
   {
     id: "490710514575",
     name: 'Lay’s Classic Potato Chips',
     score: 28,
-    ingredients: [
-      "potatoes",
-      "vegetable oil",
-      "salt"
-    ],
+    ingredients: ["potatoes", "vegetable oil", "salt"],
     image: "https://picsum.photos/800/400",
+    summary: "Simple and tasty snack but high in salt and fried oils. Offers minimal nutrition beyond carbohydrates.",
+    bottomLine: "Stay away",
   },
   {
     id: "044000037413",
     name: 'Oreo Cookies',
     score: 22,
-    ingredients: [
-      "sugar",
-      "unbleached enriched flour",
-      "palm oil",
-      "cocoa"
-    ],
+    ingredients: ["sugar", "unbleached enriched flour", "palm oil", "cocoa"],
     image: "https://picsum.photos/800/400",
+    summary: "Highly processed with lots of sugar and refined flour. Palm oil adds unnecessary saturated fats. Best left for rare indulgence.",
+    bottomLine: "Stay away",
   },
   {
     id: "649684742242",
     name: 'Neutrogena Face Wash',
     score: 70,
-    ingredients: [
-      "water",
-      "glycerin",
-      "cocamidopropyl betaine",
-      "salicylic acid"
-    ],
+    ingredients: ["water", "glycerin", "cocamidopropyl betaine", "salicylic acid"],
     image: "https://picsum.photos/800/400",
+    summary: "Effective at cleansing and fighting acne with salicylic acid. Can be drying for sensitive skin but generally well tolerated.",
+    bottomLine: "Neutral",
   },
   {
     id: "085239148761",
     name: 'KitKat Bar',
     score: 30,
-    ingredients: [
-      "milk chocolate",
-      "sugar",
-      "wheat flour",
-      "vegetable oil"
-    ],
+    ingredients: ["milk chocolate", "sugar", "wheat flour", "vegetable oil"],
     image: "https://picsum.photos/800/400",
+    summary: "Chocolate wafer treat with high sugar and fat content. Provides little nutrition aside from quick energy.",
+    bottomLine: "Stay away",
   },
   {
     id: "041554525731",
     name: 'Maybelline Superstay Lipcolor Lipstick, .14 Fl Oz',
     score: 55,
-    ingredients: [
-      "castor seed oil",
-      "beeswax",
-      "paraffin",
-      "fragrance"
-    ],
+    ingredients: ["castor seed oil", "beeswax", "paraffin", "fragrance"],
     image: "https://picsum.photos/800/400",
+    summary: "Long-lasting color with moisturizing oils and waxes. Some synthetic ingredients and fragrance may irritate sensitive users.",
+    bottomLine: "Neutral",
   },
   {
     id: "4084500047587",
     name: 'Head & Shoulders Classic Clean 2 in 1 Shampoo (400 Ml)',
     score: 65,
-    ingredients: [
-      "water",
-      "sodium lauryl sulfate",
-      "zinc pyrithione",
-      "fragrance"
-    ],
+    ingredients: ["water", "sodium lauryl sulfate", "zinc pyrithione", "fragrance"],
     image: "https://picsum.photos/800/400",
+    summary: "Popular dandruff shampoo with proven active ingredient zinc pyrithione. Contains sulfates and fragrance, which can be harsh for sensitive scalps.",
+    bottomLine: "Neutral",
   },
   {
     id: "783399699283",
     name: 'Nature Valley Oats N Dark Chocolate Crunchy Granola Bars',
     score: 72,
-    ingredients: [
-      "whole grain oats",
-      "sugar",
-      "canola oil",
-      "honey"
-    ],
+    ingredients: ["whole grain oats", "sugar", "canola oil", "honey"],
     image: "https://picsum.photos/800/400",
+    summary: "Provides whole grains and some fiber, but also includes added sugar and oil. A better choice than many snacks but still not perfect.",
+    bottomLine: "Neutral",
   },
   {
     id: "032601951474",
@@ -126,6 +97,8 @@ export const testProducts: Product[] = [
     score: 95,
     ingredients: ["spinach"],
     image: "https://picsum.photos/800/400?random=1",
+    summary: "Nutrient-dense leafy greens packed with vitamins, minerals, and antioxidants. Very low in calories with no downsides.",
+    bottomLine: "Go for it",
   },
   {
     id: "810596014684",
@@ -133,6 +106,8 @@ export const testProducts: Product[] = [
     score: 90,
     ingredients: ["almonds"],
     image: "https://picsum.photos/800/400?random=2",
+    summary: "Rich in healthy fats, protein, and fiber. Excellent snack for heart health when eaten in moderation.",
+    bottomLine: "Go for it",
   },
   {
     id: "6565745747343",
@@ -140,6 +115,8 @@ export const testProducts: Product[] = [
     score: 88,
     ingredients: ["milk", "live active cultures"],
     image: "https://picsum.photos/800/400?random=3",
+    summary: "High in protein and probiotics, supporting gut and muscle health. Naturally low in fat and sugar when plain.",
+    bottomLine: "Go for it",
   },
   {
     id: "799695621194",
@@ -147,6 +124,8 @@ export const testProducts: Product[] = [
     score: 90,
     ingredients: ["avocado"],
     image: "https://picsum.photos/800/400?random=4",
+    summary: "Loaded with heart-healthy fats, fiber, and micronutrients. Great for satiety and nutrient absorption.",
+    bottomLine: "Go for it",
   },
   {
     id: "811127542744",
@@ -154,6 +133,8 @@ export const testProducts: Product[] = [
     score: 92,
     ingredients: ["water", "glycerin", "aloe vera", "sunflower oil"],
     image: "https://picsum.photos/800/400?random=5",
+    summary: "Moisturizing lotion with natural plant oils and soothing aloe. Generally safe, minimal synthetic concerns.",
+    bottomLine: "Go for it",
   },
   {
     id: "794437372594",
@@ -161,6 +142,8 @@ export const testProducts: Product[] = [
     score: 89,
     ingredients: ["sunflower seed oil", "coconut oil", "tocopherol"],
     image: "https://picsum.photos/800/400?random=6",
+    summary: "Natural-leaning cleanser with nourishing oils and vitamin E. Gentle but may not remove heavy buildup.",
+    bottomLine: "Go for it",
   },
   {
     id: "810376010653",
@@ -168,6 +151,8 @@ export const testProducts: Product[] = [
     score: 96,
     ingredients: ["blueberries"],
     image: "https://picsum.photos/800/400?random=8",
+    summary: "Antioxidant-rich fruit that supports brain and heart health. Naturally sweet with no drawbacks.",
+    bottomLine: "Go for it",
   },
   {
     id: "491000293491",
@@ -175,6 +160,8 @@ export const testProducts: Product[] = [
     score: 88,
     ingredients: ["shea butter", "coconut oil", "hibiscus extract"],
     image: "https://picsum.photos/800/400?random=7",
+    summary: "Moisturizing cream with natural oils and extracts. Works well for curls but can feel heavy on fine hair.",
+    bottomLine: "Go for it",
   },
   {
     id: "077890383827",
@@ -182,6 +169,8 @@ export const testProducts: Product[] = [
     score: 91,
     ingredients: ["olive oil"],
     image: "https://picsum.photos/800/400?random=9",
+    summary: "A staple healthy fat rich in antioxidants and monounsaturated oils. Supports heart and brain health.",
+    bottomLine: "Go for it",
   },
   {
     id: "3606000519039",
@@ -189,12 +178,16 @@ export const testProducts: Product[] = [
     score: 94,
     ingredients: ["water", "glycerin", "ceramides", "hyaluronic acid"],
     image: "https://picsum.photos/800/400?random=10",
+    summary: "Dermatologist-recommended moisturizer with ceramides and hyaluronic acid. Strengthens skin barrier with minimal risks.",
+    bottomLine: "Go for it",
   },
-    {
+  {
     id: "00048569",
     name: "Oven Toasted Old Fashioned Organic Oats",
     score: 82,
     ingredients: ["organic rolled oats"],
     image: "https://picsum.photos/800/400?random=10",
+    summary: "Wholesome, fiber-rich whole grain with steady energy release. Excellent for heart health and digestion.",
+    bottomLine: "Go for it",
   },
-]
+];
