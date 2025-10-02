@@ -1,5 +1,6 @@
 import { testProducts } from '@/data/testProducts';
 import Entypo from '@expo/vector-icons/Entypo';
+import { useIsFocused } from '@react-navigation/native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useRef, useState } from 'react';
@@ -11,6 +12,7 @@ const ScanProduct = () => {
   const [hasScanned, setHasScanned] = useState(false);
   const [isFlashOn, setIsFlashOn] = useState(false);
   const lastScannedTimestampRef = useRef(0);
+  const isFocused = useIsFocused();
   const router = useRouter();
 
   useFocusEffect(
@@ -71,7 +73,9 @@ const ScanProduct = () => {
 
   return (
     <View style={styles.container}>
-      <CameraView style={styles.camera} facing="back" enableTorch={isFlashOn} onBarcodeScanned={!hasScanned ? (data) => handleScan(data) : undefined}/>
+      {isFocused &&
+        <CameraView style={styles.camera} facing="back" enableTorch={isFlashOn} onBarcodeScanned={!hasScanned ? (data) => handleScan(data) : undefined}/>
+      }
       <Overlay />
       <Pressable style={styles.torchButton} onPress={() => setIsFlashOn(!isFlashOn)}><Entypo name="flash" size={24} color="black" /></Pressable>
     </View>
