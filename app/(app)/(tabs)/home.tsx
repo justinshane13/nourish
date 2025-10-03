@@ -2,17 +2,25 @@ import HomeSection from '@/components/HomeSection';
 import ProductCarousel from '@/components/ProductCarousel';
 import { testProducts } from '@/data/testProducts';
 import { useRouter } from 'expo-router';
+import React, { useRef } from 'react';
 import {
+    Platform,
     ScrollView,
     StyleSheet,
     Text,
     View
 } from 'react-native';
+import { BannerAd, BannerAdSize, TestIds, useForeground } from 'react-native-google-mobile-ads';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
     const router = useRouter();
     const insets = useSafeAreaInsets();
+    const bannerRef = useRef<BannerAd>(null);
+
+    useForeground(() => {
+        Platform.OS === 'ios' && bannerRef.current?.load();
+    });
 
     return  (
         <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom + 16 }}>
@@ -25,6 +33,9 @@ const HomeScreen = () => {
             <HomeSection title="Recent searches" onPressSeeAll={() => {router.push("/history")}}>
                 <ProductCarousel products={testProducts} />
             </HomeSection>
+
+            {/* TODO: replace TestIds with real ad unit IDs from admob when ready for production */}
+            <BannerAd ref={bannerRef} unitId={TestIds.BANNER} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
 
             <HomeSection title="You Might Like" onPressSeeAll={() => {router.push("/history")}}>
                 <ProductCarousel products={testProducts.filter(product => product.score >= 85)} />
