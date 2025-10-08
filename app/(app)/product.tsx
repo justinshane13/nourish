@@ -78,15 +78,20 @@ export default function ProductScreen() {
             <Text style={styles.productText}><Text style={{ fontWeight: 'bold' }}>Ingredients:</Text> {product.ingredients.join(", ")}</Text>
           </View>
 
-          <View style={styles.summaryContainer}>
+          <View style={styles.textContainer}>
             <Text style={styles.summaryText}>
               <Text style={{ fontWeight: 'bold' }}>Summary: </Text>
               {product.summary}
             </Text>
           </View>
 
-          <View style={styles.contentRow}>
-            <Text style={styles.productText}><Text style={{ fontWeight: 'bold' }}>Bottom line:</Text> {product.bottomLine}</Text>
+          <View style={[styles.textContainer, { backgroundColor: "#fff" }]}>
+            <View style={styles.headerLine}>
+              <View style={styles.line} />
+              <Text style={styles.lineText}>Bottom Line</Text>
+              <View style={styles.line} />
+            </View>
+            <Text style={[styles.productText, { textAlign: "center" }]}>{product.bottomLine}</Text>
           </View>
 
         </View>
@@ -157,7 +162,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: "#374151",
   },
-  summaryContainer: {
+  textContainer: {
     backgroundColor: '#4A90E2',
     borderRadius: 16,
     paddingVertical: 12,
@@ -173,6 +178,23 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     lineHeight: 22,
+  },
+    headerLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 12,
+  },
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#000',
+  },
+  lineText: {
+    marginHorizontal: 8,
+    fontWeight: '600',
+    fontSize: 16,
+    color: '#333',
   },
   productText: {
     fontSize: 16,

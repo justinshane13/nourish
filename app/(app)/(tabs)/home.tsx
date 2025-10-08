@@ -1,4 +1,5 @@
 import HomeSection from '@/components/HomeSection';
+import NativeAdCard from '@/components/NativeAdCard';
 import ProductCarousel from '@/components/ProductCarousel';
 import { testProducts } from '@/data/testProducts';
 import { useRouter } from 'expo-router';
@@ -10,7 +11,10 @@ import {
     Text,
     View
 } from 'react-native';
-import { BannerAd, BannerAdSize, TestIds, useForeground } from 'react-native-google-mobile-ads';
+import {
+    BannerAd,
+    useForeground
+} from 'react-native-google-mobile-ads';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
@@ -26,8 +30,8 @@ const HomeScreen = () => {
         <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom + 16 }}>
 
             <View style={styles.welcome}>
-                <Text style={styles.title}>Hi, Shelby</Text>
-                <Text style={styles.welcomeTitle}>You've searched 8 products this week — Way to go! 🥳</Text>
+                <Text style={styles.title}>Hi, Shelby.</Text>
+                <Text style={styles.welcomeTitle}>You've searched 12 products this week — Way to go! 🥳</Text>
             </View>
 
             <HomeSection title="Recent searches" onPressSeeAll={() => {router.push("/history")}}>
@@ -35,7 +39,10 @@ const HomeScreen = () => {
             </HomeSection>
 
             {/* TODO: replace TestIds with real ad unit IDs from admob when ready for production */}
-            <BannerAd ref={bannerRef} unitId={TestIds.BANNER} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
+            {/* <BannerAd ref={bannerRef} unitId={TestIds.BANNER} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} /> */}
+            <HomeSection title="Sponsored content">
+                <NativeAdCard />
+            </HomeSection>
 
             <HomeSection title="You Might Like" onPressSeeAll={() => {router.push("/history")}}>
                 <ProductCarousel products={testProducts.filter(product => product.score >= 85)} />
@@ -56,7 +63,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 30,
         backgroundColor: '#000',
-        marginBottom: 10,
+        marginBottom: 0,
     },
     welcomeTitle: {
         fontSize: 16,

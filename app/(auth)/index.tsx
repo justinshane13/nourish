@@ -1,4 +1,5 @@
 import nourishImage from "@/assets/images/nourish-icon.png";
+import Button from "@/components/Button";
 import { useRouter } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -14,9 +15,10 @@ const HomeScreen = () => {
       </View>
 
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.button} onPress={() => router.push('/(auth)/login')}>
+        {/* <TouchableOpacity style={styles.button} onPress={() => router.push('/(auth)/login')}>
           <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <Button title="Login" onPress={() => router.push("/(auth)/login")}></Button>
 
         <TouchableOpacity onPress={() => router.push("/(auth)/signup")}>
           <Text style={styles.link}>Create Account</Text>
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10
   },
-    subtitle: {
+  subtitle: {
     fontSize: 20,
     color: '#333',
     textAlign: 'center',
