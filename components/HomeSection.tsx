@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface HomeSectionProps {
     title: string;
-    onPressSeeAll: () => void;
+    onPressSeeAll?: () => void;
     children: React.ReactNode;
 }
 
@@ -11,11 +11,13 @@ const HomeSection = ({title, onPressSeeAll, children}: HomeSectionProps) => {
         <View style={styles.container}>
             <View style={styles.sectionHeader}>
                 <Text style={styles.sectionTitle}>{title}</Text>
-                <View style={styles.underlineContainer}>
-                    <TouchableOpacity onPress={onPressSeeAll}>
-                        <Text style={styles.link}>See all</Text>
-                    </TouchableOpacity>
-                </View>
+                {onPressSeeAll &&
+                    <View style={styles.underlineContainer}>
+                        <TouchableOpacity onPress={onPressSeeAll}>
+                            <Text style={styles.link}>See all</Text>
+                        </TouchableOpacity>
+                    </View>
+                }
             </View>
             {children}
         </View>

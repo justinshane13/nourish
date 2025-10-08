@@ -22,12 +22,10 @@ const ProductCard = ({product}: {product: Product}) => {
     return (
         <Pressable style={styles.productCard} onPress={handlePress}>
             <Text style={styles.tileTitle} numberOfLines={3} ellipsizeMode="tail">{product.name}</Text>
-
             <View style={styles.cardRowTwo}>
                 <ScoreCircle product={product} />
                 <Text style={styles.tileText}><Text style={{ fontWeight: 'bold' }}>Ingredients:</Text> {product.ingredients.join(", ")}</Text>
             </View>
-
         </Pressable>
     )
 }
