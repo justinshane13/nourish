@@ -47,7 +47,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 12,
-    backgroundColor: "#13803d",
+    backgroundColor: "#ffffffff",
+    shadowColor: "#444",
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 6,
   },
   backButton: {
     width: 40,
@@ -56,7 +61,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 24,
-    color: "#fff",
+    color: "#000",
   },
   titleContainer: {
     flexDirection: "row",
@@ -72,7 +77,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#fff"
+    color: "#000"
   },
   rightIcons: {
     width: 40, // reserve space

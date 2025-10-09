@@ -34,18 +34,18 @@ const HomeScreen = () => {
                 <Text style={styles.welcomeTitle}>You've searched 12 products this week — Way to go! 🥳</Text>
             </View>
 
-            <HomeSection title="Recent searches" onPressSeeAll={() => {router.push("/history")}}>
-                <ProductCarousel products={testProducts} />
+            <HomeSection title="Recent Searches" onPressSeeAll={() => {router.push("/history")}}>
+                <ProductCarousel products={testProducts.filter(product => product.score < 88)} />
             </HomeSection>
 
             {/* TODO: replace TestIds with real ad unit IDs from admob when ready for production */}
             {/* <BannerAd ref={bannerRef} unitId={TestIds.BANNER} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} /> */}
-            <HomeSection title="Sponsored content">
+            <HomeSection title="Sponsored Content">
                 <NativeAdCard />
             </HomeSection>
 
             <HomeSection title="You Might Like" onPressSeeAll={() => {router.push("/history")}}>
-                <ProductCarousel products={testProducts.filter(product => product.score >= 85)} />
+                <ProductCarousel products={testProducts.filter(product => product.score >= 88)} />
             </HomeSection>
             
         </ScrollView>
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     welcome: {
         paddingHorizontal: 20,
         paddingVertical: 30,
-        backgroundColor: '#000',
+        backgroundColor: '#1682a3ff',
         marginBottom: 0,
     },
     welcomeTitle: {
